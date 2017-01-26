@@ -119,62 +119,53 @@ $(document).ready(function () {
 </div>
 
 
-<div id="in-class-programming-activity-day-1" class="section level1">
-<h1>In-Class Programming Activity, Day 1</h1>
-<div id="pradyut-bansal" class="section level2">
-<h2>Pradyut Bansal</h2>
+<div id="in-class-programming-activity-day-2" class="section level1">
+<h1>In-Class Programming Activity, Day 2</h1>
+</div>
+<div id="pradyut-bansal" class="section level1">
+<h1>Pradyut Bansal</h1>
 <p>Your work goes here …</p>
+<pre class="r"><code>#download.file(&quot;http://www-bcf.usc.edu/~gareth/ISL/Auto.csv&quot;,destfile=&quot;Auto.csv&quot;)
+auto_file_name= &quot;/home/pbansal/Documents/Math-253-Assignments/Auto.csv&quot;</code></pre>
 </div>
-<div id="task-1" class="section level2">
-<h2>Task 1</h2>
-<pre class="r"><code>library(mosaicData)</code></pre>
+<div id="task-2" class="section level1">
+<h1>Task 2</h1>
+<pre class="r"><code>Auto = read.csv(&quot;http://www-bcf.usc.edu/~gareth/ISL/Auto.csv&quot;)</code></pre>
 </div>
-<div id="task-2" class="section level2">
-<h2>Task 2</h2>
-<pre class="r"><code>cat(&quot;Today is&quot;,date())</code></pre>
-<pre><code>## Today is Tue Jan 24 14:21:58 2017</code></pre>
+<div id="task-3" class="section level1">
+<h1>Task 3</h1>
+<pre class="r"><code>task3 = summary(Auto$horsepower)</code></pre>
 </div>
-<div id="task3" class="section level2">
-<h2>Task3</h2>
-<pre class="r"><code>task3a = names(Galton)
-task3a</code></pre>
-<pre><code>## [1] &quot;family&quot; &quot;father&quot; &quot;mother&quot; &quot;sex&quot;    &quot;height&quot; &quot;nkids&quot;</code></pre>
-<pre class="r"><code>task3b =  dim(Galton)[1]
-task3b</code></pre>
-<pre><code>## [1] 898</code></pre>
-<pre class="r"><code>task3c =  mean(Galton$height)
-task3c</code></pre>
-<pre><code>## [1] 66.76069</code></pre>
+<div id="task4" class="section level1">
+<h1>task4</h1>
+<pre class="r"><code>library(ISLR)</code></pre>
+<pre><code>## 
+## Attaching package: 'ISLR'</code></pre>
+<pre><code>## The following object is masked _by_ '.GlobalEnv':
+## 
+##     Auto</code></pre>
 </div>
-<div id="task4" class="section level2">
-<h2>Task4</h2>
-<pre class="r"><code>task4 = matrix(c(1,2,3,4,5,6), 2,3, byrow = T)</code></pre>
-</div>
-<div id="task5" class="section level2">
-<h2>Task5</h2>
-<pre class="r"><code>task5x = runif(1000,0,1)
-task5y = runif(1000,0,1)
-sq_val = sqrt(task5x^2+task5y^2)
-pi_val = subset(sq_val,sq_val&lt;1)
-task5pi = length(pi_val)/length(sq_val)</code></pre>
-</div>
+<div id="task5" class="section level1">
+<h1>task5</h1>
+<pre class="r"><code>task5top = Auto[c(1:5),c(1:3)]
+task5bottom =Auto[c(393:397), c(7:9)]</code></pre>
 <div id="test-statements" class="section level2">
 <h2>Test statements</h2>
-<pre class="r"><code>scoreActivity::score253(1)</code></pre>
+<pre class="r"><code>scoreActivity::score253(2)</code></pre>
 <pre><code>## --------
-## Running test statements for day  01</code></pre>
+## Running test statements for day  02</code></pre>
 <pre><code>## Loading required package: scoreActivity</code></pre>
 <pre><code>## Loading required package: lazyeval</code></pre>
-<pre><code>## FAILED: &quot;package:mosaic&quot; %in% search()
-## ERROR when running  check(TRUE, is.character(task2))
-## ERROR when running  check(TRUE, grepl(&quot;^Today is&quot;, task2) &amp;&amp; grepl(&quot;201.$&quot;, task2))
-## passed: all(task3a %in% names(mosaicData::Galton))
-## passed: task3b
-## passed: task3c
-## passed: all(dim(task4) == c(2, 3))
-## passed: max(task5x) &lt;= 1 &amp;&amp; min(task5x) &gt;= 0
-## passed: max(task5y) &lt;= 1 &amp;&amp; min(task5y) &gt;= 0
-## FAILED: task5pi</code></pre>
+<pre><code>## passed: object &quot;Auto&quot; exists
+## passed: is.character(auto_file_name)
+## passed: object &quot;task3&quot; exists
+## passed: &quot;package:ISLR&quot; %in% search()
+## passed: nrow(task5top)
+## passed: ncol(task5top)
+## passed: nrow(task5bottom)
+## passed: ncol(task5bottom)
+## passed: task5top[5, 3] == Auto[5, 3]
+## passed: task5bottom[5, 3] == Auto[nrow(Auto), ncol(Auto)]</code></pre>
 </div>
 </div>
 
