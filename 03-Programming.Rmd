@@ -1,9 +1,47 @@
 # In-Class Programming Activity, Day 3
-
+#Pradyut Bansal 
 Your work goes here ...
 
+#task1
+```{r}
+library(ISLR)
+data(College, package = "ISLR")        
 
+```
 
+#task2
+```{r}
+College$Yield = College$Enroll / College$Accept
+```
+
+#task3
+```{r}
+all_indices = 1:dim(College)[1]
+train_indices= sample(all_indices,200)
+test_indices = setdiff(all_indices,train_indices)
+Train_data = College[train_indices,]
+Test_data = College[test_indices,]
+```
+
+#task4
+```{r}
+Yield_mod1 <- lm(Yield ~ Top10perc + Outstate + Expend, data=Train_data)
+
+```
+
+#task5
+```{r}
+Y_train = Train_data$Yield
+fhat_train =  predict(Yield_mod1, newdata = Train_data ) 
+MSE_train = sqrt(sum(fhat_train^2))
+```
+
+#task6
+```{r}
+Y_test = Test_data$Yield
+fhat_test =  predict(Yield_mod1, newdata = Test_data ) 
+MSE_test = sqrt(sum(fhat_test^2))
+```
 ## Test statements
 
 ```{r}
