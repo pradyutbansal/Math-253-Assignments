@@ -1,7 +1,19 @@
 # In-Class Programming Activity, Day 10
-
+#pradyut Bansal
 Your work goes here ...
 
+```{r}
+library(ISLR)
+
+logistic = function(x){
+  return(exp(x)/(1+exp(x)))
+}
+
+linear_combine = function(data,coefs){
+  data
+  
+}
+```
 
 
 ## Test statements

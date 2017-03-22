@@ -1,8 +1,123 @@
 # In-Class Programming Activity, Day 9
-
+#Pradyut Bansal
 Your work goes here ...
 
 
+```{r}
+poker_deck <- c(outer((10 * 2:14), 1:4, '+'))
+
+
+suits = function(card){
+  suitNum = card%%10
+  suitNum[suitNum == 1] = "spades"
+  suitNum[suitNum == 2] = "clubs"
+  suitNum[suitNum == 3] = "hearts"
+  suitNum[suitNum == 4] = "diamonds"
+  return(suitNum)
+}
+
+ranks = function(card){
+   rankNum = card%/%10
+   # rankNum[rankNum == 11] = "J"
+   # rankNum[rankNum == 12] = "Q"
+   # rankNum[rankNum == 13] = "K"
+   # rankNum[rankNum == 14] = "A"
+  return(rankNum)
+}
+
+is_royal_flush = function(five_cards){
+  if(max(table(suits(five_cards)))==5 && all(c(11,12,13,14,10) %in% ranks(five_cards))){return(TRUE)}
+   else{return(FALSE)}
+}
+is_straight_flush = function(five_cards){
+  if(max(table(suits(five_cards)))==5 && max(diff(sort(ranks(five_cards)))) == 1){
+    return(TRUE)
+  }
+   else{return(FALSE)}
+}
+is_four_of_a_kind = function(five_cards){
+  if(max(table(ranks(five_cards))) == 4){
+     return(TRUE)
+  }
+   else{return(FALSE)}
+}
+is_full_house = function(five_cards){
+  if(max(table(ranks(five_cards))) == 3 && min(table(ranks(five_cards))) == 2){
+    return(TRUE)
+  }
+   else {return(FALSE)}
+}
+is_flush = function(five_cards){
+  if(max(table(suits(five_cards))) == 5){
+    return(TRUE)
+  }
+   else{return(FALSE)}
+}
+
+is_straight = function(five_cards){
+  if(max(diff(sort(ranks(five_cards)))) == 1 || (max(diff(sort(ranks(five_cards)))) == 13&min(diff(sort(ranks(five_cards)))) == 1)){
+    return(TRUE)
+  }
+   else{return(FALSE)}
+}
+is_three_of_a_kind = function(five_cards){
+  if(max(table(ranks(five_cards))) == 3){
+    return(TRUE)
+  }
+   else{return(FALSE)}
+}
+is_two_pair = function(five_cards){
+  if(max(table(ranks(five_cards))) == 2 && length(unique(ranks(five_cards)))==3){
+    return(TRUE)
+  }
+   else{return(FALSE)}
+}
+is_pair = function(five_cards){
+  
+ if(length(unique(ranks(five_cards)))==4){
+   return(TRUE)
+ }
+  else{return(FALSE)}
+}
+
+
+
+before_draw <- function() {
+  five_cards <- sample(poker_deck, 5)
+  print(data.frame(rank(five_cards),suits(five_cards)))
+  if(is_royal_flush(five_cards)){
+    return("royal_flush")
+  } 
+  else if (is_straight_flush(five_cards)){
+    return("straight_flush")
+  }
+  else if (is_four_of_a_kind(five_cards)){
+    return("four_of_a_kind")
+  }
+  else if (is_full_house(five_cards)==TRUE){
+    return("full_house")
+  }
+  else if (is_flush(five_cards)){
+    return("flush")
+  }
+  else if (is_straight(five_cards)){
+    return("straight")
+  }
+  else if(is_three_of_a_kind(five_cards)){
+    return("three_of_a_kind")
+  }
+  else if(is_two_pair(five_cards)){
+    return("two_pair")
+  }
+  else if(is_pair(five_cards)){
+    return("pair")}
+  else{return("nothing")}
+  
+}
+
+#table(sapply(1:10000,FUN=before_draw()))
+
+```
 
 ## Test statements
 

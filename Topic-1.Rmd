@@ -1,2 +1,47 @@
 # Topic 1 Exercises
+# Pradyut Bansal
+# 2/3/17
 
+##2.4.1
+
+a) An inflexible model would be better than a flexible model because of the small number of estimators. The flexible model might over fit it.
+
+b) The large number of predictors is helpful in a flexible model and so I think the flexble model would preform better than the inflexible model.
+
+c) The flexible model would be better than the inflexible model because of the non linear nature of the model. Most inflexible models tend to be linear and so easier to interpret
+
+d) The inflexible model would be better because the flexible model would overfit the dataset.
+
+2.4.3
+
+##2.4.6
+
+Non Parametric methods make no assumptions about the data and dont try to fit it to a particular set of parameters. Parametric models can paint a clearer pictue of the data given the right model is used.
+
+##2.4.8
+
+a) 
+
+```{r}
+library(ISLR)
+college = College
+college
+```
+
+b)
+```{r}
+fix(college)
+rownames(college)=college [,1]
+fix(college)
+college= college[,-1]
+fix(college)
+```
+
+c)
+```{r}
+summary(college)
+pairs(college[1:10])
+plot(college$Outstate,college$Private, type = "box")
+```
+
+2.4.9

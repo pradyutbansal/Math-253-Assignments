@@ -1,8 +1,44 @@
 # In-Class Programming Activity, Day 4
-
+# Pradyut Bansal
 Your work goes here ...
 
+## Task 1
+```{r}
+plot(1, xlim = c(0, 100), ylim = c(0,100), type="n")
+```
+# Task 2
+```{r}
+x1 = c(20,20,80,80)
+y1 = c(80,20,20,80)
+plot(1, xlim = c(0, 100), ylim = c(0,100), type="n")
+lines(x1,y1)
 
+x2 = c(20,80)
+y2 = c(80,80)
+lines(x2,y2)
+```
+
+## Task 3
+```{r}
+x3 = c(50+ 40*cos(seq(0,2*pi,.01)))
+y3 = c(60 + 40*sin(seq(0,2*pi,.01)))
+plot(1, xlim = c(0, 100), ylim = c(0,100), type="n")
+lines(x3,y3)
+```
+##Task 4
+
+```{r}
+x4 = c(50+ 40*abs(sin(seq(0,2*pi,.01))) *cos(seq(0,2*pi,.01)))
+y4 = c(60 + 40*abs(sin(seq(0,2*pi,.01)))*sin(seq(0,2*pi,.01)))
+plot(1, xlim = c(0, 100), ylim = c(0,100), type="n")
+polygon(x4,y4)
+```
+##Task5
+
+```{r}
+plot(1, xlim = c(0, 100), ylim = c(0,100), type="n")
+polygon(x4,y4,col = col2rgb('tomato', alpha = .4), lwd = 3, pch= 1, xlab = "x label", ylab = "Y label" )
+```
 
 ## Test statements
 

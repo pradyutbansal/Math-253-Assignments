@@ -1,7 +1,24 @@
 # In-Class Programming Activity, Day 7
-
+#Pradyut Bansal
 Your work goes here ...
 
+## Exponential models
+
+```{r}
+vals = rexp(10,1/100) 
+test200 = sum(log(dexp(vals,1/200)))
+LL_exp = function(rate){
+  return(sum(log(dexp(vals,rate))))
+}
+rates = 1/seq(50,200,.25)
+results = sapply(rates,LL_exp)
+max(results)
+plot(1/rates,results)
+
+exp_results <- optimize(LL_exp, lower=1/200, upper=1/50, maximum = TRUE)
+
+argmax = 1/rates[match(max(results),results)]
+```
 
 
 ## Test statements
